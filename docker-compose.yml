@@ -1,0 +1,35 @@
+# Ambiente LOCAL: docker compose up
+# Sobe o PostgreSQL e o Django (com o Tailwind atualizando sozinho).
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: sistema
+      POSTGRES_USER: sistema
+      POSTGRES_PASSWORD: sistema-local
+    volumes:
+      - banco:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sistema -d sistema"]
+      interval: 3s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      args:
+        REQUISITOS: requirements-dev.txt
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://sistema:sistema-local@db:5432/sistema
+    command: sh -c "python manage.py migrate && python manage.py tailwind runserver 0.0.0.0:8000"
+    ports:
+      - "${PORTA:-8000}:8000" # troque com PORTA=8001 se a 8000 estiver ocupada
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  banco:

@@ -1,0 +1,9 @@
+# Instale uma vez: pip install pre-commit && pre-commit install
+# A cada commit, o Ruff formata e confere o código sozinho.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.4
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format

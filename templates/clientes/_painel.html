@@ -1,0 +1,30 @@
+<div class="grid gap-6 md:grid-cols-[18rem_1fr]">
+  <form hx-post="{% url 'clientes:novo' %}" hx-target="#painel"
+        class="h-fit space-y-3 rounded-xl border border-neutral-200 bg-white p-4">
+    <h2 class="font-semibold">Novo cliente</h2>
+    {% for campo in form %}
+      <div>
+        <label for="{{ campo.id_for_label }}" class="mb-1 block text-sm font-medium">{{ campo.label }}</label>
+        <input id="{{ campo.id_for_label }}" name="{{ campo.html_name }}" value="{{ campo.value|default:'' }}"
+               type="{{ campo.field.widget.input_type }}" {% if campo.field.required %}required{% endif %}
+               class="w-full rounded-lg border border-neutral-300 px-3 py-2">
+        {% if campo.help_text %}<p class="mt-1 text-xs text-neutral-500">{{ campo.help_text }}</p>{% endif %}
+        {% for erro in campo.errors %}<p class="mt-1 text-sm text-red-700">{{ erro }}</p>{% endfor %}
+      </div>
+    {% endfor %}
+    <button class="w-full rounded-lg bg-destaque px-4 py-2 font-semibold text-white hover:bg-destaque-escuro">
+      Cadastrar
+    </button>
+  </form>
+
+  <div class="space-y-3">
+    <label for="busca" class="sr-only">Buscar cliente</label>
+    <input id="busca" name="busca" type="search" placeholder="Buscar por nome..." value="{{ busca }}"
+           hx-get="{% url 'clientes:lista' %}" hx-trigger="input changed delay:300ms, search"
+           hx-target="#tabela"
+           class="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2">
+    <div id="tabela">
+      {% include "clientes/_tabela.html" %}
+    </div>
+  </div>
+</div>

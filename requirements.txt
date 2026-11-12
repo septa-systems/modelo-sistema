@@ -1,0 +1,14 @@
+# Produção. Versões fixas (docs/PADROES.md). O Dependabot avisa quando atualizar.
+Django==5.2.19
+psycopg[binary]==3.3.8
+gunicorn==27.0.0
+whitenoise==6.12.0
+django-environ==0.14.0
+django-axes==9.0.0
+django-otp==1.7.5
+qrcode==8.2
+django-htmx==1.29.0
+django-tailwind-cli==4.8.2
+# Dados falsos do comando seed (local e ambiente de teste)
+factory_boy==3.3.3
+Faker==40.54.0

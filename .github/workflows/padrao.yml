@@ -1,0 +1,48 @@
+name: Padrão do time
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  push:
+    branches: [main]
+
+jobs:
+  padrao:
+    name: Padrão do time
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Nada de .env, chaves ou certificados
+        run: |
+          proibidos=$(git ls-files | grep -E '(^|/)\.env$|(^|/)\.env\.[^e]|\.(pem|key|p12|pfx)$' || true)
+          if [ -n "$proibidos" ]; then
+            echo "Arquivos que não podem ir para o repositório:"
+            echo "$proibidos"
+            exit 1
+          fi
+
+      - name: Título do PR no padrão (vira o commit na main)
+        if: github.event_name == 'pull_request'
+        env:
+          TITULO: ${{ github.event.pull_request.title }}
+        run: |
+          if ! echo "$TITULO" | grep -Eq '^(feat|fix|docs|refactor|test|chore): .+'; then
+            echo "Título fora do padrão: $TITULO"
+            echo "Use: tipo: descrição   (tipos: feat, fix, docs, refactor, test, chore)"
+            echo "Veja docs/FLUXO.md"
+            exit 1
+          fi
+
+      - name: Nome da branch no padrão
+        # Branches do Dependabot (dependabot/...) têm nome próprio e ficam de fora desta regra
+        if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'dependabot/')
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          if ! echo "$BRANCH" | grep -Eq '^(feature|bugfix|hotfix|chore)/[0-9]+-[a-z0-9-]+$'; then
+            echo "Branch fora do padrão: $BRANCH"
+            echo "Use: tipo/numero-da-issue-descricao   (ex.: feature/12-pagina-servicos)"
+            echo "Tipos: feature, bugfix, hotfix, chore. Tudo minúsculo, com hífen."
+            exit 1
+          fi

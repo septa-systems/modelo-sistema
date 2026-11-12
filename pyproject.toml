@@ -1,0 +1,22 @@
+[project]
+name = "modelo-sistema"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["**/migrations/*"]
+
+[tool.ruff.lint]
+# E/F erros, I imports, B bugs comuns, UP Python moderno, DJ Django, S segurança
+select = ["E", "F", "I", "B", "UP", "DJ", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101", "S106"] # assert e senha de teste são normais em teste
+"**/management/commands/seed.py" = ["S106", "S311"] # dados falsos
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py"]
+addopts = "-q"

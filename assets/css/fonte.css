@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Marca do projeto: troque as cores aqui. Padrão: Septa Systems. */
+@theme {
+  --color-destaque: #0d9488;
+  --color-destaque-escuro: #0f766e;
+  --font-sans: "Inter", system-ui, sans-serif;
+}

@@ -1,0 +1,22 @@
+<div class="overflow-x-auto rounded-xl border border-neutral-200 bg-white">
+  <table class="w-full text-left text-sm">
+    <thead class="border-b border-neutral-200 text-neutral-500">
+      <tr>
+        <th class="px-4 py-3 font-medium">Nome</th>
+        <th class="px-4 py-3 font-medium">Telefone</th>
+        <th class="px-4 py-3 font-medium">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cliente in clientes %}
+        <tr class="border-b border-neutral-100 last:border-0">
+          <td class="px-4 py-3">{{ cliente.nome }}</td>
+          <td class="px-4 py-3">{{ cliente.telefone }}</td>
+          <td class="px-4 py-3">{{ cliente.email|default:"—" }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="3" class="px-4 py-8 text-center text-neutral-500">Nenhum cliente encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

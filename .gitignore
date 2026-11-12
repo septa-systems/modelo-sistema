@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Django
+staticfiles/
+media/
+static/css/tailwind.css
+.django_tailwind_cli/
+
+# Segredos
+.env
+.env.*
+!.env.example
+
+# Editor e sistema
+.idea/
+.DS_Store
+
+# Claude Code (configuração pessoal)
+.claude/settings.local.json

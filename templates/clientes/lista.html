@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block titulo %}Clientes{% endblock %}
+
+{% block conteudo %}
+<h1 class="mb-6 text-3xl font-bold">Clientes</h1>
+<div id="painel">
+  {% include "clientes/_painel.html" %}
+</div>
+{% endblock %}
