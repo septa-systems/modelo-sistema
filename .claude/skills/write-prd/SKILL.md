@@ -14,5 +14,7 @@ Regras:
 
 - Use só o que foi decidido na conversa; não invente requisitos.
 - O glossário usa as palavras do cliente; elas viram nomes no código.
+- A meta de usabilidade tem número (quem, qual tarefa, quanto tempo, sem ajuda). "Fácil de usar" não vale.
+- Os casos de teste incluem os limites da regra, o pedido enviado duas vezes e o acesso de outra empresa.
 - Não faça commit sem o usuário pedir. Quando pedir, siga o `docs/FLUXO.md` (branch, PR, aprovação do Tech lead).
 - Depois de salvo, diga o caminho do arquivo e sugira o próximo passo: `/arquitetura`.
