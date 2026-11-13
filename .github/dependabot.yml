@@ -9,12 +9,20 @@ updates:
     groups:
       dependencias:
         patterns: ["*"]
+    # Versão grande (major) a gente atualiza à mão, com teste.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
     commit-message:
       prefix: "chore"
+    # Python novo (3.13, 3.14...) a gente troca à mão; só aceita correções.
+    ignore:
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
