@@ -69,7 +69,9 @@ Estúdio de tecnologia com 7 sócios.
 
 - Não altere arquivos fora do assunto da tarefa.
 - Não troque bibliotecas nem a estrutura do projeto sem o ok do Tech lead.
-- Siga o [`docs/PADROES.md`](https://github.com/septa-systems/septa-handbook/blob/main/docs/PADROES.md): nomes do negócio em português sem acento (`Agendamento`, `cancelar_agendamento`), regra em `services.py`, testes obrigatórios (regra, permissão, bug corrigido).
+- Siga o [`docs/PADROES.md`](https://github.com/septa-systems/septa-handbook/blob/main/docs/PADROES.md): nomes do negócio em português sem acento (`Agendamento`, `cancelar_agendamento`), regra em `services.py` (cadastro simples não precisa), dinheiro em `Decimal`, testes obrigatórios (isolamento com 404, permissão, dinheiro, clique duplo, regra, bug corrigido).
+- Tela nova ou alterada: rode o `/revisar-tela` antes de abrir o PR.
+- Não sabe em que etapa o projeto está? Veja a tabela "Do começo ao fim" no [`docs/ARQUITETURA.md`](https://github.com/septa-systems/septa-handbook/blob/main/docs/ARQUITETURA.md).
 - Antes de abrir o PR, rode o que a checagem roda (Ruff e pytest, ou Prettier e astro check) e corrija.
 - Nunca coloque senhas, chaves ou dados de clientes no código. O `.env` fica no `.gitignore`.
 - Dado real de cliente só existe em produção. Local e teste usam dados falsos (`seed`). Ver [`docs/AMBIENTES.md`](https://github.com/septa-systems/septa-handbook/blob/main/docs/AMBIENTES.md).
