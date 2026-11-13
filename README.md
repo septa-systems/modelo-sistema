@@ -4,12 +4,12 @@ Ponto de partida de todo sistema da Septa: **Django + PostgreSQL + HTMX + Tailwi
 
 ## Começar um sistema novo
 
-1. **Use this template → Create a new repository** (dono: `septa-systems`).
-   Nome: `sistema-<cliente>`. Projeto de cliente é **privado**.
-2. No repositório novo:
-   - Settings → General: só "Squash merge" e "Automatically delete head branches".
-   - Settings → Code security: ligue Dependabot.
-   - Repositório público: Settings → Rules, regra da `main` igual à do manual (PR + aprovação do Tech lead + checagens "Padrão do time" e "Sistema"). Privado no plano grátis: vale a Regra nº 1 do `CLAUDE.md`.
+1. O Tech lead cria o repo pelo script do manual, que já configura merge, segurança e quadro, e sai **privado**, como todo projeto de cliente ([docs/NOVO-REPO.md](https://github.com/septa-systems/septa-handbook/blob/main/docs/NOVO-REPO.md)):
+   ```bash
+   scripts/novo-repo.sh sistema-<cliente> sistema
+   ```
+   Não use só o botão "Use this template": ele copia o código, mas não a configuração. Privado no plano grátis: vale a Regra nº 1 do `CLAUDE.md`.
+2. Baixe: `gh repo clone septa-systems/sistema-<cliente>`.
 3. Antes de programar: `docs/projeto/` (entrevista, PRD e arquitetura). Ver `docs/projeto/README.md`.
 4. Troque o app de exemplo `clientes` pelo que o PRD pede, no mesmo jeito: service + permissão + testes.
 
