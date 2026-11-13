@@ -4,7 +4,7 @@ Ponto de partida de todo sistema da Septa: **Django + PostgreSQL + HTMX + Tailwi
 
 ## Começar um sistema novo
 
-1. O Tech lead cria o repo pelo script do manual, que já configura merge, segurança e quadro, e sai **privado**, como todo projeto de cliente ([docs/NOVO-REPO.md](https://github.com/septa-systems/septa-handbook/blob/main/docs/NOVO-REPO.md)):
+1. O Tech lead cria o repo pelo script do manual, que já configura merge, segurança, quadro e o acesso do time `socios`, e sai **privado**, como todo projeto de cliente ([docs/NOVO-REPO.md](https://github.com/septa-systems/septa-handbook/blob/main/docs/NOVO-REPO.md)):
    ```bash
    scripts/novo-repo.sh sistema-<cliente> sistema
    ```
@@ -54,7 +54,7 @@ Opcional: `pip install pre-commit && pre-commit install` formata sozinho a cada 
 | **12-Factor** | tudo que muda por ambiente vem do `.env` |
 | **Testes** | pytest + factory_boy: regras, permissões, login e telas |
 | **Telas** | HTMX (busca e cadastro sem recarregar) + Tailwind sem Node |
-| **Deploy** | `Dockerfile` pronto (gunicorn, whitenoise, migrations no início); rota `/saude/` |
+| **Deploy** | `Dockerfile` pronto (gunicorn, whitenoise, migrations no início); rota `/saude/`. Onde roda: Railway do 1º ao 3º sistema, VPS depois ([AMBIENTES.md](https://github.com/septa-systems/septa-handbook/blob/main/docs/AMBIENTES.md)) |
 
 ## Estrutura
 
