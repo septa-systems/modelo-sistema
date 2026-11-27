@@ -50,7 +50,7 @@ Estúdio de tecnologia com 7 sócios.
 - Missão: ser o time de tecnologia que todo negócio precisa, mas não tem.
 - Slogan: "O time de tecnologia do seu negócio."
 - Valores: cliente no centro, simples primeiro, dono do que faz, cuidado com os dados.
-- Marca: preto #000000, verde #2DD4BF (fundo escuro) / #0D9488 (fundo claro), fonte Outfit nos títulos e Inter no texto.
+- Marca: preto #000000, verde #2DD4BF (fundo escuro) / #0D9488 (fundo claro), fonte Manrope nos títulos, Inter no texto e Outfit só no nome SEPTA do logo.
 
 ## Antes de começar qualquer tarefa
 
